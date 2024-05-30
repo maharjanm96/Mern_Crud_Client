@@ -1,76 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   margin: 0;
   padding: 0;
 }
 
-html {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-.card {
-  border: 1px solid hsl(0, 0%, 80%);
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
-  max-width: 200px;
-  padding: 20px;
-  margin: 15px;
-  text-align: center;
-  display: inline-block;
-  color: cornflowerblue;
-  font-size: 12px;
-  height: 40vh;
-}
-
-.card .card-img {
-  height: auto;
-  max-width: 60%;
-  border-radius: 50%;
-}
-
-.navbar {
-  background-color: purple;
-  height: 5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.logo {
-  color: whitesmoke;
-  font-size: 30px;
-  font-weight: bold;
-  margin-left: 40px;
-  cursor: pointer;
-}
-
-.nav-links {
-  display: flex;
-  gap: 40px;
-  margin-right: 40px;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: whitesmoke;
-  font-size: 20px;
-}
-a:hover {
-  color: cornsilk;
-}
-
-.button-style {
-  border: none;
-  border-radius: 5px;
-  height: 2rem;
-  width: 5rem;
-  background-color: purple;
-  color: whitesmoke;
-  font-weight: bold;
-  font-size: 12px;
-  cursor: pointer;
-}
-
-.card-button {
-  padding-top: 10px;
-  display: flex;
-  justify-content: space-around;
+body {
+  @apply bg-white;
 }
