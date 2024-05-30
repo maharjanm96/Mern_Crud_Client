@@ -1,19 +1,34 @@
+// CreateUser.jsx
 import React, { useState } from "react";
 import NavbarLayout from "../NavBar/Navbar";
+import Button from "../buttons/Button";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const CreateUser = () => {
-  const [fullName, setFullName] = useState("");
+  const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Perform your form submission logic here
-    console.log("Form submitted:", { fullName, age, gender });
-    // Reset form fields after submission
-    setFullName("");
-    setAge("");
-    setGender("");
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/users/createuser",
+        { fullName: name, age, gender }
+      );
+      console.log("User created:", response.data);
+      // Reset form fields after successful submission
+      setName("");
+      setAge("");
+      setGender("");
+      // Optionally, show a success message to the user
+      toast.success("User created successfully!");
+    } catch (error) {
+      console.error("Error creating user:", error);
+      // Optionally, show an error message to the user
+      toast.error("Error creating user. Please try again.");
+    }
   };
 
   return (
@@ -31,9 +46,9 @@ const CreateUser = () => {
             </label>
             <input
               type="text"
-              id="fullName"
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="w-full mt-1 p-2 border-gray-300 border rounded-md"
               required
             />
@@ -74,12 +89,12 @@ const CreateUser = () => {
               <option value="other">Other</option>
             </select>
           </div>
-          <button
+          <Button
             type="submit"
-            className="bg-blue-500 text-white w-full py-2 rounded-md"
-          >
-            Submit
-          </button>
+            buttonName="Submit"
+            width="400px"
+            height="40px"
+          />
         </form>
       </div>
     </div>

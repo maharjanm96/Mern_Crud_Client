@@ -47,7 +47,7 @@ function Card() {
       {users.map((user) => (
         <div
           key={user._id}
-          className="bg-white-700 border-purple-500 border-2 w-50 h-50 shadow-md rounded-lg p-4 m-4 max-w-sm w-full sm:w-1/2 lg:w-1/4"
+          className="bg-white-700 border-purple-500 border-2 shadow-md rounded-lg p-4 m-4 max-w-sm w-full sm:w-1/2 lg:w-1/4"
         >
           <img
             className="w-24 h-24 rounded-full mx-auto mb-4"
@@ -55,7 +55,7 @@ function Card() {
             alt="User Profile"
           />
           <h3 className="text-xl font-semibold text-center mb-2 text-black">
-            Fullname: {user.name}
+            Fullname: {user.fullName}
           </h3>
           <h3 className="text-lg text-center mb-2 text-black">
             Age: {user.age}
